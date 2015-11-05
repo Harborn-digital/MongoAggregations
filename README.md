@@ -28,4 +28,4 @@ Within the stages operations can be used, these are currently supported:
 
 Currently, other operations are not required by our application that uses this library. Contributions adding support for other operations are welcome.
 
-**Stages or operations that aren't supported by the library, can still be used be constructing arrays. However, creating a class and the abstraction layer that comes with that is to be preferred.**
+**Stages or operations that aren't supported by the library, can still be used by constructing arrays. However, creating a class and the abstraction layer that comes with that is to be preferred.**
