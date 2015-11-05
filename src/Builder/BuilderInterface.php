@@ -44,5 +44,4 @@ interface BuilderInterface
      * @return array
      */
     public function build();
-
 }

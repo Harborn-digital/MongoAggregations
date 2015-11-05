@@ -43,7 +43,8 @@ class Group extends AbstractArrayDefinitionAggregation
      * @param string $resultField
      * @param GroupOperationInterface $operation
      */
-    public function setResultField($resultField, GroupOperationInterface $operation) {
+    public function setResultField($resultField, GroupOperationInterface $operation)
+    {
         if ($this->resultFieldSet === true) {
             throw new InvalidAggregationDefinitionException('A result field is already set, twice is not allowed');
         }

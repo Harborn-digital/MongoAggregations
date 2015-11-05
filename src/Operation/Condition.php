@@ -24,7 +24,8 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
      * @param mixed $else
      * @return Condition
      */
-    public static function getConditionByIfArray(array $if, $then, $else) {
+    public static function getConditionByIfArray(array $if, $then, $else)
+    {
         $condition = new static();
         $condition->setIfByArray($if);
         $condition->setThen($then);

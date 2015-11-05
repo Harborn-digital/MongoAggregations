@@ -98,5 +98,4 @@ class UnwindBuilderTest extends AbstractTestCase
         $this->assertEquals(1, $bars);
         $this->assertEquals(1, $foobars);
     }
-
 }
