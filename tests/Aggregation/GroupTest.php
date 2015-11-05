@@ -27,6 +27,17 @@ class GroupTest extends AbstractTestCase
     }
 
     /**
+     * Verifies that trying to group by multiple fields leads to an exception
+     */
+    public function testMultipleGroupByThrowsException()
+    {
+        $group = new Group();
+        $group->setGroupBy('foo');
+        $this->setExpectedException(InvalidAggregationDefinitionException::class);
+        $group->setGroupBy('bar');
+    }
+
+    /**
      * Tests grouping some data
      */
     public function testGroupData()
