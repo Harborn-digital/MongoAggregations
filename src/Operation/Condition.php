@@ -88,4 +88,24 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
         }
         return $arguments;
     }
+
+    /**
+     * Gets the operation
+     *
+     * @return array
+     */
+    public function getOperation()
+    {
+        $arguments = $this->getArguments();
+        if ($arguments[1] instanceof OperationInterface) {
+            $arguments[1] = $arguments[1]->getOperation();
+        }
+        if ($arguments[2] instanceof OperationInterface) {
+            $arguments[2] = $arguments[2]->getOperation();
+        }
+
+        $this->setArguments($arguments);
+
+        return parent::getOperation();
+    }
 }
