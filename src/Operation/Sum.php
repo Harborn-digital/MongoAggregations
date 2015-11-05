@@ -13,7 +13,7 @@ class Sum extends AbstractOperation implements GroupOperationInterface
      */
     public function __construct()
     {
-        $this->setOperationType('$push');
+        $this->setOperationType('$sum');
     }
 
     /**
