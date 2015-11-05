@@ -9,6 +9,16 @@
             "email": "ron@connectholland.nl"
         }
     ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
     "require": {
         "phpunit/phpunit": "^4.0"
     }
