@@ -20,7 +20,7 @@ abstract class AbstractAggregation implements AggregationInterface
      *
      * @var mixed
      */
-    private $definition = [];
+    private $definition;
 
     /**
      * Gets the aggregation stage

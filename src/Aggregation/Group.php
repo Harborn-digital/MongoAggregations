@@ -52,18 +52,4 @@ class Group extends AbstractArrayDefinitionAggregation
         $this->setField($resultField, $operation->getOperation());
         $this->resultFieldSet = true;
     }
-
-     /**
-     * Gets the definition array for the grouping
-     *
-     * @return array
-     */
-    protected function getDefinition()
-    {
-        $definition = parent::getDefinition();
-        if (!is_array($definition)) {
-            $definition = [];
-        }
-        return $definition;
-    }
 }
