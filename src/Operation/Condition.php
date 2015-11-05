@@ -59,11 +59,7 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
     public function setThen($then)
     {
         $arguments = $this->getArguments();
-        if ($arguments[1] !== false) {
-            throw new InvalidAggregationOperationArgument('Attempt to add a second then in a condition is not alllowed');
-        } else {
-            $arguments[1] = $then;
-        }
+        $arguments[1] = $then;
         $this->setArguments($arguments);
     }
 
@@ -75,11 +71,7 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
     public function setElse($else)
     {
         $arguments = $this->getArguments();
-        if ($arguments[2] !== false) {
-            throw new InvalidAggregationOperationArgument('Attempt to add a second else in a condition is not alllowed');
-        } else {
-            $arguments[2] = $else;
-        }
+        $arguments[2] = $else;
         $this->setArguments($arguments);
     }
 
@@ -95,5 +87,25 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
             $arguments = [false, false, false];
         }
         return $arguments;
+    }
+
+    /**
+     * Gets the operation
+     *
+     * @return array
+     */
+    public function getOperation()
+    {
+        $arguments = $this->getArguments();
+        if ($arguments[1] instanceof OperationInterface) {
+            $arguments[1] = $arguments[1]->getOperation();
+        }
+        if ($arguments[2] instanceof OperationInterface) {
+            $arguments[2] = $arguments[2]->getOperation();
+        }
+
+        $this->setArguments($arguments);
+
+        return parent::getOperation();
     }
 }

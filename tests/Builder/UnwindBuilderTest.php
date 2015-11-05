@@ -1,43 +1,16 @@
 <?php
-namespace ConnectHolland\MongoAggregations\Builder\Tests;
+namespace ConnectHolland\MongoAggregations\Builder\Test;
 
 use ConnectHolland\MongoAggregations\Builder\UnwindBuilder;
-use MongoClient;
-use MongoCollection;
-use PHPUnit_Framework_TestCase;
+use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
  * Unit test for the unwind builder
  *
  * @author Ron Rademaker
  */
-class UnwindBuilderTest extends PHPUnit_Framework_TestCase
+class UnwindBuilderTest extends AbstractTestCase
 {
-    /**
-     * Mongo collection to use for testing
-     *
-     * @var MongoCollection
-     */
-    private $collection;
-
-    /**
-     * setUp
-     */
-    public function setUp()
-    {
-        $client = new MongoClient();
-        $db = $client->selectDB('MongAggregationsUnitTest');
-        $this->collection = $db->selectCollection('UnwindBuilderTest');
-    }
-
-    /**
-     * tearDown
-     */
-    public function tearDown()
-    {
-        $this->collection->drop();
-    }
-
     /**
      * Tests if a regular unwind works
      */
