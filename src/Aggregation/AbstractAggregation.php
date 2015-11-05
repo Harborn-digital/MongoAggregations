@@ -62,5 +62,4 @@ abstract class AbstractAggregation implements AggregationInterface
     {
         $this->definition = $definition;
     }
-
 }

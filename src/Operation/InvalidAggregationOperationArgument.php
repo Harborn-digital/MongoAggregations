@@ -10,5 +10,4 @@ use Exception;
  */
 class InvalidAggregationOperationArgument extends Exception
 {
-
 }

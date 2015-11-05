@@ -14,6 +14,4 @@ interface AggregationInterface
      * @return array
      */
     public function getStage();
-
-    
 }

@@ -18,7 +18,7 @@ class AggregationBag
      */
     public function addAggregation(AggregationInterface $aggregation)
     {
-       $this->bag[] = $aggregation;
+        $this->bag[] = $aggregation;
     }
 
     /**

@@ -8,5 +8,4 @@ namespace ConnectHolland\MongoAggregations\Operation;
  */
 interface ProjectOperationInterface extends OperationInterface
 {
-
 }
