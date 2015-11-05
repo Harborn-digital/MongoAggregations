@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ConnectHolland/MongoAggregations.svg?branch=master)](https://travis-ci.org/ConnectHolland/MongoAggregations)
+
 # MongoAggregations
 Library allowing easy access to the mongo aggregate framework
 
