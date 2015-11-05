@@ -1,0 +1,13 @@
+{
+    "name": "connectholland/mongo-aggregations",
+    "description": "Library allowing easy access to the mongo aggregate framework",
+    "type": "Library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ron Rademaker",
+            "email": "ron@connectholland.nl"
+        }
+    ],
+    "require": {}
+}
