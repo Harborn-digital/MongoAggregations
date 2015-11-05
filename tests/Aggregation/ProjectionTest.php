@@ -3,13 +3,14 @@ namespace ConnectHolland\MongoAggregations\Aggregation\Test;
 
 use ConnectHolland\MongoAggregations\Aggregation\Projection;
 use ConnectHolland\MongoAggregations\Operation\Condition;
+use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
  * Unit test to test the $project stage
  *
  * @author Ron Rademaker
  */
-class ProjectionTest
+class ProjectionTest extends AbstractTestCase
 {
     /**
      * Test if fields are included
@@ -56,7 +57,7 @@ class ProjectionTest
         $projection = new Projection();
         $projection->includeField('foo');
         $condition = Condition::getConditionByIfArray(
-            ['$eq' => ['foo', 'foo']],
+            ['$eq' => ['$foo', 'foo']],
             true,
             false
         );
