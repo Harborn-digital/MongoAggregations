@@ -6,7 +6,7 @@ namespace ConnectHolland\MongoAggregations\Operation;
  *
  * @author Ron Rademaker
  */
-class Sum
+class Sum extends AbstractOperation implements GroupOperationInterface
 {
     /**
      * Creates a new condition
@@ -23,6 +23,10 @@ class Sum
      */
     public function setSum($sum)
     {
-        $this->setSum($sum);
+        if ($sum instanceof OperationInterface) {
+            $this->setArguments($sum->getOperation());
+        } else {
+            $this->setArguments($sum);
+        }
     }
 }

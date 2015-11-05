@@ -24,6 +24,10 @@ class Unwind extends AbstractAggregation
      */
     public function setField($unwindField)
     {
+        if (strpos($unwindField, '$') !== 0) {
+            $unwindField = '$' . $unwindField;
+        }
+        
         $this->setDefinition($unwindField);
     }
 }

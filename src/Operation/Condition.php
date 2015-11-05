@@ -48,7 +48,7 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
         } else {
             $arguments[0] = $if;
         }
-        return $arguments;
+        $this->setArguments($arguments);
     }
 
     /**
@@ -64,7 +64,7 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
         } else {
             $arguments[1] = $then;
         }
-        return $arguments;
+        $this->setArguments($arguments);
     }
 
     /**
@@ -80,21 +80,7 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
         } else {
             $arguments[2] = $else;
         }
-        return $arguments;
-    }
-
-    /**
-     * Checks if the operation is complete before returning
-     *
-     * @return array
-     */
-    public function getOperation()
-    {
-        $arguments = $this->getArguments();
-        if (in_array(false, $arguments)) {
-            throw new InvalidAggregationOperationArgument('A cond operation must have an if, then and an else');
-        }
-        return parent::getOperation();
+        $this->setArguments($arguments);
     }
 
      /**

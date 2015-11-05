@@ -23,6 +23,10 @@ class Push extends AbstractOperation implements GroupOperationInterface
      */
     public function setPush($push)
     {
-        $this->setArguments($push);
+        if ($push instanceof OperationInterface) {
+            $this->setArguments($push->getOperation());
+        } else {
+            $this->setArguments($push);
+        }
     }
 }
