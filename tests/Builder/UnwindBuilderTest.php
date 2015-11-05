@@ -53,7 +53,24 @@ class UnwindBuilderTest extends PHPUnit_Framework_TestCase
         $this->performTest($testData, $builder);
     }
 
-     /**
+    /**
+     * Tests unwinding strings
+     */
+    public function testStringUnwind()
+    {
+        $testData = [
+            ['foo' => 'foo'],
+            ['foo' => 'foo'],
+            ['foo' => 'bar'],
+            ['foo' => 'foobar']
+        ];
+        $builder = new UnwindBuilder('foo');
+
+        $this->performTest($testData, $builder);
+    }
+
+
+    /**
      * Tests if an unwind on a mixed database works
      */
     public function testUnwindMixedDatabase()
@@ -64,7 +81,7 @@ class UnwindBuilderTest extends PHPUnit_Framework_TestCase
             ['foo' => ['foobar']]
         ];
 
-        $builder = new UnwindBuilder('foo', true);
+        $builder = new UnwindBuilder('foo');
 
         $this->performTest($testData, $builder);
     }
