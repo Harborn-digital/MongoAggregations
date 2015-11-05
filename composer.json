@@ -1,7 +1,7 @@
 {
     "name": "connectholland/mongo-aggregations",
     "description": "Library allowing easy access to the mongo aggregate framework",
-    "type": "Library",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,5 +9,7 @@
             "email": "ron@connectholland.nl"
         }
     ],
-    "require": {}
+    "require": {
+        "phpunit/phpunit": "^4.0"
+    }
 }

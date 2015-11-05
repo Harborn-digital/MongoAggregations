@@ -65,12 +65,12 @@ class PipelineBuilder implements BuilderInterface
 
         foreach ($this->pipeline as $part) {
             if ($part instanceof AggregationInterface) {
-                $aggregationPipeline[] = $part;
+                $aggregationPipeline[] = $part->getStage();
             } elseif ($part instanceof AggregationBag) {
                 $aggregations = $part->getBag();
 
                 foreach ($aggregations as $aggregation) {
-                    $aggregationPipeline[] = $aggregation;
+                    $aggregationPipeline[] = $aggregation->getStage();
                 }
             } elseif ($part instanceof BuilderInterface) {
                 $aggregations = $part->build();
