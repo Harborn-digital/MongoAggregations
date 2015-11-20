@@ -3,8 +3,6 @@
 # MongoAggregations
 Library allowing easy access to the mongo aggregate framework
 
-**This is version 0.1-RC1 of this library, the API may change before the first stable release.**
-
 ## Builders
 This library constructs aggregation pipelines using builders. You can add stages (instances of AggregationInterface), collections of stages (AggregationBags) or other builders to construct your pipeline. A special builder is the UnwindBuilder. This Builder will create a pipeline that can unwind both strings and arrays and databases that has the two mixed (the latter should be avoided). Basically the builder will transform any mongo field to an array and then unwind that array.
 
