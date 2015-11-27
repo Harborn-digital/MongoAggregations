@@ -20,13 +20,20 @@ class AbstractTestCase extends PHPUnit_Framework_TestCase
     protected $collection;
 
     /**
+     * Keep the db
+     *
+     * @var MongoDB
+     */
+    protected $db;
+
+    /**
      * setUp
      */
     public function setUp()
     {
         $client = new MongoClient();
-        $db = $client->selectDB('MongAggregationsUnitTest');
-        $this->collection = $db->selectCollection(static::class);
+        $this->db = $client->selectDB('MongAggregationsUnitTest');
+        $this->collection = $this->db->selectCollection(static::class);
     }
 
     /**
