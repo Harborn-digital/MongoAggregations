@@ -20,11 +20,12 @@ class CSVExportTest extends PHPUnit_Framework_TestCase
         $exporter = new CSVExport();
 
         $exporter->exportToFile(
-            [
-                ['_id' => new MongoId(), 'foo' => 'foo', 'bar' => true, 'foobar' => 5],
-                ['_id' => new MongoId(), 'foo' => 'foobar', 'bar' => false, 'foobar' => 15],
-                ['_id' => new MongoId(), 'foo' => 'bar', 'bar' => true, 'foobar' => 0],
-                ['_id' => new MongoId(), 'foo' => 'baz', 'bar' => false, 'foobar' => -1],
+            ['result' => [
+                    ['_id' => new MongoId(), 'foo' => 'foo', 'bar' => true, 'foobar' => 5],
+                    ['_id' => new MongoId(), 'foo' => 'foobar', 'bar' => false, 'foobar' => 15],
+                    ['_id' => new MongoId(), 'foo' => 'bar', 'bar' => true, 'foobar' => 0],
+                    ['_id' => new MongoId(), 'foo' => 'baz', 'bar' => false, 'foobar' => -1],
+                ]
             ],
             'export-test'
         );

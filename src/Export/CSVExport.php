@@ -17,7 +17,7 @@ class CSVExport implements ExportInterface
     public function exportToFile(array $result, $file)
     {
         $writer = Writer::createFromFileObject(new SplTempFileObject());
-        foreach ($result as $row) {
+        foreach ($result['result'] as $row) {
             unset($row['_id']);
             $writer->insertOne($row);
         }
