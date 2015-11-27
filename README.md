@@ -24,8 +24,12 @@ Within the stages operations can be used, these are currently supported:
 * $sum: https://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum
 * $cond: https://docs.mongodb.org/manual/reference/operator/aggregation/cond/#exp._S_cond
 * $push: https://docs.mongodb.org/manual/reference/operator/aggregation/push/#grp._S_push
+* FieldOperation: to rename a field in a projection (example: {$project: {my_field: {'$some.field.hidden.in.complex.nesting'}}})
 * A ranged condition, a special kind of $cond which can map ranges (for example: 1 to 10) to strings (for example to 'low'). 
 
 Currently, other operations are not required by our application that uses this library. Contributions adding support for other operations are welcome.
+
+## EmbeddedCollections
+The library adds a class EmbeddedCollection which can be used to create a (temporary) collection that embeds documents that another collection has referenced. 
 
 **Stages or operations that aren't supported by the library, can still be used by constructing arrays. However, creating a class and the abstraction layer that comes with that is to be preferred.**
