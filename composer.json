@@ -20,6 +20,7 @@
         ]
     },
     "require": {
-        "phpunit/phpunit": "^4.0"
+        "phpunit/phpunit": "^4.0",
+        "league/csv": "^7.2"
     }
 }
