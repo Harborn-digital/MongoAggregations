@@ -6,7 +6,7 @@ namespace ConnectHolland\MongoAggregations\Operation;
  *
  * @author Ron Rademaker
  */
-abstract class AbstractOperation implements \ConnectHolland\MongoAggregations\Operation\OperationInterface
+abstract class AbstractOperation implements OperationInterface
 {
     /**
      * The type of operation
