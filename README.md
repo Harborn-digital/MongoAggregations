@@ -11,23 +11,25 @@ Example usage of the UnwindBuilder is in its Test: https://github.com/ConnectHol
 ## Supported stages
 This library currently supports the following stages in the aggregate framwork:
 
-* $match: https://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipe._S_match
-* $project: https://docs.mongodb.org/manual/reference/operator/aggregation/project/#pipe._S_project
-* $unwind: https://docs.mongodb.org/manual/reference/operator/aggregation/unwind/#pipe._S_unwind
-* $group: https://docs.mongodb.org/manual/reference/operator/aggregation/group/#pipe._S_group
-
-Currently, other stages are not required by our application that uses this library. Contributions adding support for other stages are welcome.
+| Class | Operator | Description |
+|-------|----------|-------------|
+|Match|$match| https://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipe._S_match|
+|Project|$project| https://docs.mongodb.org/manual/reference/operator/aggregation/project/#pipe._S_project|
+|Unwind|$unwind| https://docs.mongodb.org/manual/reference/operator/aggregation/unwind/#pipe._S_unwind|
+|Group|$group| https://docs.mongodb.org/manual/reference/operator/aggregation/group/#pipe._S_group|
+|Sort|$sort| https://docs.mongodb.org/manual/reference/operator/aggregation/sort/|
+|RangeProjection||A ranged projection stage, a special kind of $project which can map ranges (for example: 1 to 10) to strings (for example to 'low'). |
 
 ## Supported operations
 Within the stages operations can be used, these are currently supported:
 
-* $sum: https://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum
-* $cond: https://docs.mongodb.org/manual/reference/operator/aggregation/cond/#exp._S_cond
-* $push: https://docs.mongodb.org/manual/reference/operator/aggregation/push/#grp._S_push
-* FieldOperation: to rename a field in a projection (example: {$project: {my_field: {'$some.field.hidden.in.complex.nesting'}}})
-* A ranged condition, a special kind of $cond which can map ranges (for example: 1 to 10) to strings (for example to 'low'). 
-
-Currently, other operations are not required by our application that uses this library. Contributions adding support for other operations are welcome.
+| Class | Operator | Description |
+|-------|----------|-------------|
+|Sum|$sum| https://docs.mongodb.org/manual/reference/operator/aggregation/sum/#grp._S_sum|
+|Condition|$cond| https://docs.mongodb.org/manual/reference/operator/aggregation/cond/#exp._S_cond|
+|Push|$push| https://docs.mongodb.org/manual/reference/operator/aggregation/push/#grp._S_push|
+|WeekOperation|$week| https://docs.mongodb.org/manual/reference/operator/aggregation/week/|
+|FieldOperation||Rename a field in a projection (example: ```{$project: {my_field: {'$some.field.hidden.in.complex.nesting'}}}```)|
 
 ## EmbeddedCollections
 The library adds a class EmbeddedCollection which can be used to create a (temporary) collection that embeds documents that another collection has referenced. 
