@@ -81,4 +81,42 @@ class GroupTest extends AbstractTestCase
         $this->assertEquals(2, $foos);
         $this->assertEquals(3, $bars);
     }
+
+      /**
+     * Tests grouping some data on multiple fields
+     */
+    public function testGroupDataOnMultipleFields()
+    {
+        $testData = [
+            ['foo' => 'foo', 'bar' => 'bar'],
+            ['foo' => 'foo', 'bar' => 'bar'],
+            ['foo' => 'bar', 'bar' => 'foo'],
+            ['foo' => 'bar', 'bar' => 'bar'],
+            ['foo' => 'bar', 'bar' => 'bar']
+        ];
+
+        foreach ($testData as $test) {
+            $this->collection->save($test);
+        }
+
+        $group = new Group();
+        $group->setGroupBy(['foo', 'bar']);
+        $sum = new Sum();
+        $sum->setSum(1);
+        $group->setResultField('count', $sum);
+
+        $result = $this->collection->aggregate([$group->getStage()]);
+
+        $this->assertEquals(3, count($result['result']));
+
+        foreach ($result['result'] as $res) {
+            if ($res['_id'] == ['foo' => 'foo', 'bar' => 'bar']) {
+                $this->assertEquals(2, $res['count']);
+            } elseif ($res['_id'] == ['foo' => 'bar', 'bar' => 'foo']) {
+                $this->assertEquals(1, $res['count']);
+            } else {
+                $this->assertEquals(2, $res['count']);
+            }
+        }
+    }
 }

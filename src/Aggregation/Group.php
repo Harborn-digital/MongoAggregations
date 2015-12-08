@@ -26,15 +26,29 @@ class Group extends AbstractArrayDefinitionAggregation
     /**
      * Sets the field to group by
      *
-     * @param string $field
+     * @param string|array $field
      */
     public function setGroupBy($field)
     {
-        if (strpos($field, '$') !== 0) {
-            $field = '$' . $field;
+        if (!is_array($field)) {
+            $field = [$field];
         }
 
-        $this->setField('_id', $field);
+        $fields = [];
+
+        foreach ($field as $groupField) {
+            if (strpos($groupField, '$') !== 0) {
+                $groupField = '$' . $groupField;
+            }
+
+            $fields[ltrim($groupField, '$')] = $groupField;
+        }
+
+        if (count($fields) === 1) {
+            $this->setField('_id', array_pop($fields));
+        } else {
+            $this->setField('_id', $fields);
+        }
     }
 
     /**
