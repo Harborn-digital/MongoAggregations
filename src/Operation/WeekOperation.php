@@ -9,6 +9,14 @@ namespace ConnectHolland\MongoAggregations\Operation;
 class WeekOperation extends AbstractOperation implements ProjectOperationInterface
 {
     /**
+     * Sets the operation
+     */
+    public function __construct()
+    {
+        $this->setOperationType('$week');
+    }
+
+    /**
      * Sets the date field to create week numbers from
      *
      * @param mixed arguments
@@ -19,23 +27,9 @@ class WeekOperation extends AbstractOperation implements ProjectOperationInterfa
             if (strpos($field, '$') !== 0) {
                 $field = '$' . $field;
             }
-            $this->setArguments(['$week' => $field]);
+            $this->setArguments($field);
         } else {
             throw new InvalidAggregationOperationArgument('WeekOperation only allows scalar arguments');
         }
     }
-
-    /**
-     * Sets the field to add the week number under
-     *
-     * @param string $field
-     */
-    public function setWeekField($field)
-    {
-        if (is_scalar($field)) {
-            parent::setOperationType($field);
-        } else {
-            throw new InvalidAggregationOperationArgument('WeekOperation only allows scalar arguments');
-        }
-   }
 }
