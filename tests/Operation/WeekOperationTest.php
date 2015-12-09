@@ -36,16 +36,6 @@ class WeekOperationTest extends AbstractTestCase
     }
 
     /**
-     * Tests if passing in incorrect param throws an exception
-     */
-    public function testIncorrectWeekFieldThrowsException()
-    {
-        $this->setExpectedException(InvalidAggregationOperationArgument::class);
-        $week = new WeekOperation();
-        $week->setWeekField(['week']);
-    }
-
-    /**
      * Test projecting week numbers
      */
     public function testProjectWeekNumber()
