@@ -1,16 +1,18 @@
 <?php
 namespace ConnectHolland\MongoAggregations\Operation\Test;
 
+use ConnectHolland\MongoAggregations\Aggregation\Projection;
 use ConnectHolland\MongoAggregations\Operation\InvalidAggregationOperationArgument;
 use ConnectHolland\MongoAggregations\Operation\WeekOperation;
-use PHPUnit_Framework_TestCase;
+use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
+use MongoDate;
 
 /**
  * Tests the week operation
  *
  * @author Ron Rademaker
  */
-class WeekOperationTest extends PHPUnit_Framework_TestCase
+class WeekOperationTest extends AbstractTestCase
 {
     /**
      * Tests if the week operation gives the correct mongo query
@@ -19,9 +21,8 @@ class WeekOperationTest extends PHPUnit_Framework_TestCase
     {
         $week = new WeekOperation();
         $week->setDatefield('date');
-        $week->setWeekField('week');
 
-        $this->assertEquals(['week' => ['$week' => '$date']], $week->getOperation());
+        $this->assertEquals(['$week' => '$date'], $week->getOperation());
     }
 
     /**
@@ -35,12 +36,34 @@ class WeekOperationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests if passing in incorrect param throws an exception
+     * Test projecting week numbers
      */
-    public function testIncorrectWeekFieldThrowsException()
+    public function testProjectWeekNumber()
     {
-        $this->setExpectedException(InvalidAggregationOperationArgument::class);
+        $testData = [
+            ['foo' => new MongoDate(strtotime('2015W10')), 'expected' => strftime('%U', strtotime('2015W10'))],
+            ['foo' => new MongoDate(strtotime('2015W20')), 'expected' => strftime('%U', strtotime('2015W20'))],
+            ['foo' => new MongoDate(strtotime('2015W25')), 'expected' => strftime('%U', strtotime('2015W25'))]
+        ];
+
+        foreach ($testData as $test) {
+            $this->collection->save($test);
+        }
+
         $week = new WeekOperation();
-        $week->setWeekField(['week']);
+        $week->setDatefield('foo');
+
+        $projection = new Projection();
+        $projection->includeField('expected');
+        $projection->includeOperationField('weeknumber', $week);
+
+        $result = $this->collection->aggregate([$projection->getStage()]);
+
+        $this->assertEquals(3, count($result['result']));;
+
+        foreach ($result['result'] as $record) {
+           $this->assertEquals($record['expected'], $record['weeknumber']);
+        }
+
     }
 }
