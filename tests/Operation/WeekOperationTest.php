@@ -41,9 +41,9 @@ class WeekOperationTest extends AbstractTestCase
     public function testProjectWeekNumber()
     {
         $testData = [
-            ['foo' => new MongoDate(strtotime('2015W10')), 'expected' => 10],
-            ['foo' => new MongoDate(strtotime('2015W20')), 'expected' => 20],
-            ['foo' => new MongoDate(strtotime('2015W25')), 'expected' => 25]
+            ['foo' => new MongoDate(strtotime('2015W10')), 'expected' => strftime('%U', strtotime('2015W10'))],
+            ['foo' => new MongoDate(strtotime('2015W20')), 'expected' => strftime('%U', strtotime('2015W20'))],
+            ['foo' => new MongoDate(strtotime('2015W25')), 'expected' => strftime('%U', strtotime('2015W25'))]
         ];
 
         foreach ($testData as $test) {
