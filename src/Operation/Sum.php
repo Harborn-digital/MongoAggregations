@@ -1,15 +1,16 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation;
 
 /**
- * Operation to $sum in the $group stage
+ * Operation to $sum in the $group stage.
  *
  * @author Ron Rademaker
  */
 class Sum extends AbstractOperation implements GroupOperationInterface
 {
     /**
-     * Creates a new condition
+     * Creates a new condition.
      */
     public function __construct()
     {
@@ -17,7 +18,7 @@ class Sum extends AbstractOperation implements GroupOperationInterface
     }
 
     /**
-     * Sets the value to sum
+     * Sets the value to sum.
      *
      * @param mixed $sum
      */

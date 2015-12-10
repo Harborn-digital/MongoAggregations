@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Export\Test;
 
 use ConnectHolland\MongoAggregations\Export\CSVExport;
@@ -6,14 +7,14 @@ use MongoId;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Unit test for the CSV export
+ * Unit test for the CSV export.
  *
  * @author Ron Rademaker
  */
 class CSVExportTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test the export
+     * Test the export.
      */
     public function testExport()
     {
@@ -25,7 +26,7 @@ class CSVExportTest extends PHPUnit_Framework_TestCase
                     ['_id' => new MongoId(), 'foo' => 'foobar', 'bar' => false, 'foobar' => 15],
                     ['_id' => new MongoId(), 'foo' => 'bar', 'bar' => true, 'foobar' => 0],
                     ['_id' => new MongoId(), 'foo' => 'baz', 'bar' => false, 'foobar' => -1],
-                ]
+                ],
             ],
             'export-test'
         );

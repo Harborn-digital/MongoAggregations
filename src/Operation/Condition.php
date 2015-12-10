@@ -1,15 +1,16 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation;
 
 /**
- * A $cond operation
+ * A $cond operation.
  *
  * @author Ron Rademaker
  */
 class Condition extends AbstractOperation implements ProjectOperationInterface
 {
     /**
-     * Creates a new condition
+     * Creates a new condition.
      */
     public function __construct()
     {
@@ -17,11 +18,12 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
     }
 
     /**
-     * Factory method to get condition by array if (@see setIfByArray)
+     * Factory method to get condition by array if (@see setIfByArray).
      *
      * @param array $if
      * @param mixed $then
      * @param mixed $else
+     *
      * @return Condition
      */
     public static function getConditionByIfArray(array $if, $then, $else)
@@ -30,14 +32,14 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
         $condition->setIfByArray($if);
         $condition->setThen($then);
         $condition->setElse($else);
+
         return $condition;
     }
-
 
     /**
      * Sets the if part by array
      * Further abstraction here is possible using objects but this is not needed now
-     * The method name prepares for future methods setIf(BooleanExpression $if)
+     * The method name prepares for future methods setIf(BooleanExpression $if).
      *
      * @param array $if
      */
@@ -53,7 +55,7 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
     }
 
     /**
-     * Sets the then part
+     * Sets the then part.
      *
      * @param mixed $then
      */
@@ -65,7 +67,7 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
     }
 
     /**
-     * Sets the else part
+     * Sets the else part.
      *
      * @param mixed $else
      */
@@ -76,8 +78,8 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
         $this->setArguments($arguments);
     }
 
-     /**
-     * Gets the arguments for the condition
+    /**
+     * Gets the arguments for the condition.
      *
      * @return array
      */
@@ -87,11 +89,12 @@ class Condition extends AbstractOperation implements ProjectOperationInterface
         if (!is_array($arguments)) {
             $arguments = [false, false, false];
         }
+
         return $arguments;
     }
 
     /**
-     * Gets the operation
+     * Gets the operation.
      *
      * @return array
      */

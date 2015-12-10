@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation\Test;
 
 use ConnectHolland\MongoAggregations\Aggregation\Group;
@@ -7,14 +8,14 @@ use ConnectHolland\MongoAggregations\Operation\Sum;
 use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
- * Unit test for the $group stage
+ * Unit test for the $group stage.
  *
  * @author Ron Rademaker
  */
 class GroupTest extends AbstractTestCase
 {
     /**
-     * Verifies that trying to add multiple group results leads to an exception
+     * Verifies that trying to add multiple group results leads to an exception.
      */
     public function testMultipleResultFieldsThrowsException()
     {
@@ -27,7 +28,7 @@ class GroupTest extends AbstractTestCase
     }
 
     /**
-     * Verifies that trying to group by multiple fields leads to an exception
+     * Verifies that trying to group by multiple fields leads to an exception.
      */
     public function testMultipleGroupByThrowsException()
     {
@@ -38,7 +39,7 @@ class GroupTest extends AbstractTestCase
     }
 
     /**
-     * Tests grouping some data
+     * Tests grouping some data.
      */
     public function testGroupData()
     {
@@ -47,7 +48,7 @@ class GroupTest extends AbstractTestCase
             ['foo' => 'foo'],
             ['foo' => 'bar'],
             ['foo' => 'bar'],
-            ['foo' => 'bar']
+            ['foo' => 'bar'],
         ];
 
         foreach ($testData as $test) {
@@ -82,8 +83,8 @@ class GroupTest extends AbstractTestCase
         $this->assertEquals(3, $bars);
     }
 
-      /**
-     * Tests grouping some data on multiple fields
+    /**
+     * Tests grouping some data on multiple fields.
      */
     public function testGroupDataOnMultipleFields()
     {
@@ -92,7 +93,7 @@ class GroupTest extends AbstractTestCase
             ['foo' => 'foo', 'bar' => 'bar'],
             ['foo' => 'bar', 'bar' => 'foo'],
             ['foo' => 'bar', 'bar' => 'bar'],
-            ['foo' => 'bar', 'bar' => 'bar']
+            ['foo' => 'bar', 'bar' => 'bar'],
         ];
 
         foreach ($testData as $test) {

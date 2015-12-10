@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Test;
 
 use MongoClient;
@@ -6,28 +7,28 @@ use MongoCollection;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Description of AbstractTestCase
+ * Description of AbstractTestCase.
  *
  * @author ron
  */
 class AbstractTestCase extends PHPUnit_Framework_TestCase
 {
     /**
-     * Mongo collection to use for testing
+     * Mongo collection to use for testing.
      *
      * @var MongoCollection
      */
     protected $collection;
 
     /**
-     * Keep the db
+     * Keep the db.
      *
      * @var MongoDB
      */
     protected $db;
 
     /**
-     * setUp
+     * setUp.
      */
     public function setUp()
     {
@@ -37,7 +38,7 @@ class AbstractTestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * tearDown
+     * tearDown.
      */
     public function tearDown()
     {

@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation\Test;
 
 use ConnectHolland\MongoAggregations\Operation\Condition;
@@ -6,14 +7,14 @@ use ConnectHolland\MongoAggregations\Operation\Sum;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Unit test for the Sum operation
+ * Unit test for the Sum operation.
  *
  * @author Ron Rademaker
  */
 class SumTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Tests if the resulting operation array is as expected
+     * Tests if the resulting operation array is as expected.
      *
      * @dataProvider provideSumTestData
      */
@@ -27,7 +28,7 @@ class SumTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Gets test data
+     * Gets test data.
      */
     public function provideSumTestData()
     {
@@ -35,15 +36,15 @@ class SumTest extends PHPUnit_Framework_TestCase
             [
                 1,
                 [
-                    '$sum' => 1
-                ]
+                    '$sum' => 1,
+                ],
             ],
             [
                 Condition::getConditionByIfArray(['$eq' => ['$foo', 'foo']], 1, 2),
                 [
-                    '$sum' => ['$cond' => [['$eq' => ['$foo', 'foo']], 1, 2]]
-                ]
-            ]
+                    '$sum' => ['$cond' => [['$eq' => ['$foo', 'foo']], 1, 2]],
+                ],
+            ],
         ];
     }
 }

@@ -1,15 +1,16 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation;
 
 /**
- * Operation to add a week number
+ * Operation to add a week number.
  *
  * @author Ron Rademaker
  */
 class WeekOperation extends AbstractOperation implements ProjectOperationInterface
 {
     /**
-     * Sets the operation
+     * Sets the operation.
      */
     public function __construct()
     {
@@ -17,7 +18,7 @@ class WeekOperation extends AbstractOperation implements ProjectOperationInterfa
     }
 
     /**
-     * Sets the date field to create week numbers from
+     * Sets the date field to create week numbers from.
      *
      * @param mixed arguments
      */
@@ -25,7 +26,7 @@ class WeekOperation extends AbstractOperation implements ProjectOperationInterfa
     {
         if (is_scalar($field)) {
             if (strpos($field, '$') !== 0) {
-                $field = '$' . $field;
+                $field = '$'.$field;
             }
             $this->setArguments($field);
         } else {

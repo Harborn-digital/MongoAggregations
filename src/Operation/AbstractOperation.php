@@ -1,29 +1,30 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation;
 
 /**
- * Abstract operation
+ * Abstract operation.
  *
  * @author Ron Rademaker
  */
 abstract class AbstractOperation implements OperationInterface
 {
     /**
-     * The type of operation
+     * The type of operation.
      *
      * @var string
      */
     private $operationType;
 
     /**
-     * The arguments for the operation
+     * The arguments for the operation.
      *
      * @var mixed
      */
     private $arguments;
 
     /**
-     * Gets the operation
+     * Gets the operation.
      *
      * @return array
      */
@@ -34,7 +35,7 @@ abstract class AbstractOperation implements OperationInterface
 
     /**
      * Setter for the operation type
-     * Should be set from the constructor of the subclass
+     * Should be set from the constructor of the subclass.
      *
      * @param string $operationType
      */
@@ -44,7 +45,7 @@ abstract class AbstractOperation implements OperationInterface
     }
 
     /**
-     * Gets the arguments for the operation
+     * Gets the arguments for the operation.
      *
      * @return mixed
      */
@@ -54,7 +55,7 @@ abstract class AbstractOperation implements OperationInterface
     }
 
     /**
-     * Sets the definition of this aggregation
+     * Sets the definition of this aggregation.
      *
      * @param mixed arguments
      */

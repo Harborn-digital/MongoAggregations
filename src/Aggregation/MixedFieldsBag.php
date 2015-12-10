@@ -1,11 +1,12 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation;
 
 use ConnectHolland\MongoAggregations\Operation\Condition;
 use ConnectHolland\MongoAggregations\Operation\Push;
 
 /**
- * Bag of aggregations supporting mixed database field
+ * Bag of aggregations supporting mixed database field.
  *
  * Not recommended (keep your db clean)
  *
@@ -14,7 +15,7 @@ use ConnectHolland\MongoAggregations\Operation\Push;
 class MixedFieldsBag extends AggregationBag
 {
     /**
-     * Creates a mixed field bag for $field
+     * Creates a mixed field bag for $field.
      *
      * @param string $field
      */
@@ -26,7 +27,7 @@ class MixedFieldsBag extends AggregationBag
     }
 
     /**
-     * Gets the projection part of the pipeline
+     * Gets the projection part of the pipeline.
      *
      * @param string $field
      */
@@ -36,38 +37,38 @@ class MixedFieldsBag extends AggregationBag
         $projection->includeField($field);
 
         $originalCondition = Condition::getConditionByIfArray(
-            ['$gte' => ['$' . $field, []]],
+            ['$gte' => ['$'.$field, []]],
             null,
-            '$' . $field
+            '$'.$field
         );
 
         $unWrappedCondition = Condition::getConditionByIfArray(
-            ['$gte' => ['$' . $field, []]],
-            '$' . $field,
+            ['$gte' => ['$'.$field, []]],
+            '$'.$field,
             [1]
         );
 
-        $projection->includeOperationField($field . '_original', $originalCondition);
-        $projection->includeOperationField($field . '_unwrapped', $unWrappedCondition);
+        $projection->includeOperationField($field.'_original', $originalCondition);
+        $projection->includeOperationField($field.'_unwrapped', $unWrappedCondition);
 
         return $projection;
     }
 
     /**
-     * Gets the unwind part
+     * Gets the unwind part.
      *
      * @param string $field
      */
     private function getUnwind($field)
     {
         $unwind = new Unwind();
-        $unwind->setField($field . '_unwrapped');
+        $unwind->setField($field.'_unwrapped');
 
         return $unwind;
     }
 
     /**
-     * Gets the grouping that groups everything in an array
+     * Gets the grouping that groups everything in an array.
      *
      * @param string $field
      */
@@ -77,9 +78,9 @@ class MixedFieldsBag extends AggregationBag
         $group->setGroupBy('_id');
 
         $condition = Condition::getConditionByIfArray(
-            ['$gte' => ['$' . $field, []]],
-            '$' . $field . '_unwrapped',
-            '$' . $field . '_original'
+            ['$gte' => ['$'.$field, []]],
+            '$'.$field.'_unwrapped',
+            '$'.$field.'_original'
         );
 
         $push = new Push();

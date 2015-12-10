@@ -1,29 +1,30 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation;
 
 /**
- * Abstract aggregation stage
+ * Abstract aggregation stage.
  *
  * @author Ron Rademaker
  */
 abstract class AbstractAggregation implements AggregationInterface
 {
     /**
-     * The type of aggregation
+     * The type of aggregation.
      *
      * @var string
      */
     private $aggregationType;
 
     /**
-     * Var holding the stage's definition
+     * Var holding the stage's definition.
      *
      * @var mixed
      */
     private $definition;
 
     /**
-     * Gets the aggregation stage
+     * Gets the aggregation stage.
      *
      * @return array
      */
@@ -34,7 +35,7 @@ abstract class AbstractAggregation implements AggregationInterface
 
     /**
      * Setter for the aggregation type
-     * Should be set from the constructor of the subclass
+     * Should be set from the constructor of the subclass.
      *
      * @param string $aggregationType
      */
@@ -44,7 +45,7 @@ abstract class AbstractAggregation implements AggregationInterface
     }
 
     /**
-     * Gets the definition of this aggregation
+     * Gets the definition of this aggregation.
      *
      * @return mixed
      */
@@ -54,7 +55,7 @@ abstract class AbstractAggregation implements AggregationInterface
     }
 
     /**
-     * Sets the definition of this aggregation
+     * Sets the definition of this aggregation.
      *
      * @param mixed $definition
      */

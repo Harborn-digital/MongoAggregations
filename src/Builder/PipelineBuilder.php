@@ -1,25 +1,26 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Builder;
 
 use ConnectHolland\MongoAggregations\Aggregation\AggregationBag;
 use ConnectHolland\MongoAggregations\Aggregation\AggregationInterface;
 
 /**
- * Basic builder for aggegration pipelines
+ * Basic builder for aggegration pipelines.
  *
  * @author Ron Rademaker
  */
 class PipelineBuilder implements BuilderInterface
 {
     /**
-     * Array holding the pipeline parts
+     * Array holding the pipeline parts.
      *
      * @var array
      */
     private $pipeline = [];
 
     /**
-     * Add an aggregation to the builder
+     * Add an aggregation to the builder.
      *
      * @param AggregationInterface
      */
@@ -29,7 +30,7 @@ class PipelineBuilder implements BuilderInterface
     }
 
     /**
-     * Add a bag of aggregations to the builder
+     * Add a bag of aggregations to the builder.
      *
      * Note: the bag won't be emptied until the pipeline is build
      * Any changes there will be reflected in the resulting pipeline
@@ -42,7 +43,7 @@ class PipelineBuilder implements BuilderInterface
     }
 
     /**
-     * Adds the aggragtions from another builder
+     * Adds the aggragtions from another builder.
      *
      * Note: the other builder won't actually build until this one does
      * Any changes there will be reflected in the resulting pipeline
@@ -55,7 +56,7 @@ class PipelineBuilder implements BuilderInterface
     }
 
     /**
-     * Builds the aggregation pipeline and return the array
+     * Builds the aggregation pipeline and return the array.
      *
      * @return array
      */

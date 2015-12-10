@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Builder\Test;
 
 use ConnectHolland\MongoAggregations\Aggregation\AggregationBag;
@@ -8,14 +9,14 @@ use ConnectHolland\MongoAggregations\Builder\PipelineBuilder;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Unit test for the pipeline builder
+ * Unit test for the pipeline builder.
  *
  * @author Ron Rademaker
  */
 class PipelineBuilderTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Tests if the resulting aggregation array is as expected
+     * Tests if the resulting aggregation array is as expected.
      *
      * @dataProvider provideAggregationPipelineTestData
      */
@@ -38,7 +39,7 @@ class PipelineBuilderTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Gets test data for the pipeline builder
+     * Gets test data for the pipeline builder.
      */
     public function provideAggregationPipelineTestData()
     {
@@ -58,41 +59,40 @@ class PipelineBuilderTest extends PHPUnit_Framework_TestCase
         return [
             [
                 [
-                    $unwind1
+                    $unwind1,
                 ],
                 [
-                    ['$unwind' => '$foo']
-                ]
+                    ['$unwind' => '$foo'],
+                ],
             ],
             [
                 [
-                    $bag
+                    $bag,
                 ],
                 [
-                    ['$unwind' => '$bar']
-                ]
+                    ['$unwind' => '$bar'],
+                ],
             ],
             [
                 [
-                    $builder
+                    $builder,
                 ],
                 [
-                    ['$unwind' => '$baz']
-                ]
+                    ['$unwind' => '$baz'],
+                ],
             ],
             [
                 [
                     $unwind1,
                     $bag,
-                    $builder
+                    $builder,
                 ],
                 [
                     ['$unwind' => '$foo'],
                     ['$unwind' => '$bar'],
-                    ['$unwind' => '$baz']
-                ]
-            ]
+                    ['$unwind' => '$baz'],
+                ],
+            ],
         ];
     }
-
 }

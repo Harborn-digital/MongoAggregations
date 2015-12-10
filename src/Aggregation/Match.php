@@ -1,16 +1,16 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation;
 
 /**
- * Representation of a $match stage
+ * Representation of a $match stage.
  *
  * @author Ron Rademaker
  */
 class Match extends AbstractArrayDefinitionAggregation
 {
     /**
-     * Creates a new match
-     *
+     * Creates a new match.
      */
     public function __construct()
     {
@@ -18,7 +18,7 @@ class Match extends AbstractArrayDefinitionAggregation
     }
 
     /**
-     * Sets the query to match
+     * Sets the query to match.
      *
      * @param array $query
      */

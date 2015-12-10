@@ -1,24 +1,25 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation\Test;
 
 use ConnectHolland\MongoAggregations\Aggregation\Unwind;
 use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
- * Unit test testing the unwind stage
+ * Unit test testing the unwind stage.
  *
  * @author Ron Rademaker
  */
 class UnwindTest extends AbstractTestCase
 {
     /**
-     * Test if fields are unwinded
+     * Test if fields are unwinded.
      */
     public function testFieldsAreIncluded()
     {
         $testData = [
             ['foo' => ['foo']],
-            ['foo' => ['foo', 'bar', 'baz']]
+            ['foo' => ['foo', 'bar', 'baz']],
         ];
 
         foreach ($testData as $test) {

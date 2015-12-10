@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation\Test;
 
 use ConnectHolland\MongoAggregations\Aggregation\Projection;
@@ -8,14 +9,14 @@ use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 use MongoDate;
 
 /**
- * Tests the week operation
+ * Tests the week operation.
  *
  * @author Ron Rademaker
  */
 class WeekOperationTest extends AbstractTestCase
 {
     /**
-     * Tests if the week operation gives the correct mongo query
+     * Tests if the week operation gives the correct mongo query.
      */
     public function testWeekOperation()
     {
@@ -26,7 +27,7 @@ class WeekOperationTest extends AbstractTestCase
     }
 
     /**
-     * Tests if passing in incorrect param throws an exception
+     * Tests if passing in incorrect param throws an exception.
      */
     public function testIncorrectDateFieldThrowsException()
     {
@@ -36,14 +37,14 @@ class WeekOperationTest extends AbstractTestCase
     }
 
     /**
-     * Test projecting week numbers
+     * Test projecting week numbers.
      */
     public function testProjectWeekNumber()
     {
         $testData = [
             ['foo' => new MongoDate(strtotime('2015W10')), 'expected' => strftime('%U', strtotime('2015W10'))],
             ['foo' => new MongoDate(strtotime('2015W20')), 'expected' => strftime('%U', strtotime('2015W20'))],
-            ['foo' => new MongoDate(strtotime('2015W25')), 'expected' => strftime('%U', strtotime('2015W25'))]
+            ['foo' => new MongoDate(strtotime('2015W25')), 'expected' => strftime('%U', strtotime('2015W25'))],
         ];
 
         foreach ($testData as $test) {
@@ -59,11 +60,10 @@ class WeekOperationTest extends AbstractTestCase
 
         $result = $this->collection->aggregate([$projection->getStage()]);
 
-        $this->assertEquals(3, count($result['result']));;
+        $this->assertEquals(3, count($result['result']));
 
         foreach ($result['result'] as $record) {
-           $this->assertEquals($record['expected'], $record['weeknumber']);
+            $this->assertEquals($record['expected'], $record['weeknumber']);
         }
-
     }
 }

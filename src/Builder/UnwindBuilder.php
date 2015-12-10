@@ -1,11 +1,12 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Builder;
 
 use ConnectHolland\MongoAggregations\Aggregation\MixedFieldsBag;
 use ConnectHolland\MongoAggregations\Aggregation\Unwind;
 
 /**
- * Builder to create an unwind stage
+ * Builder to create an unwind stage.
  *
  * This builder allows you to use this in databases holding both arrays and other values in the same field
  * The use of such database is discouraged both by Mongo and by me.
@@ -16,7 +17,7 @@ use ConnectHolland\MongoAggregations\Aggregation\Unwind;
 class UnwindBuilder extends PipelineBuilder
 {
     /**
-     * Creates the unwind for $field
+     * Creates the unwind for $field.
      *
      * @param string $field
      */

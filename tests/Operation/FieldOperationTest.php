@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation\Test;
 
 use ConnectHolland\MongoAggregations\Operation\FieldOperation;
@@ -6,14 +7,14 @@ use ConnectHolland\MongoAggregations\Operation\InvalidAggregationOperationArgume
 use PHPUnit_Framework_TestCase;
 
 /**
- * Tests the field operation
+ * Tests the field operation.
  *
  * @author Ron Rademaker
  */
 class FieldOperationTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Tests if the field operation gives the correct mongo query
+     * Tests if the field operation gives the correct mongo query.
      */
     public function testWeekOperation()
     {
@@ -24,7 +25,7 @@ class FieldOperationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests if passing in incorrect param throws an exception
+     * Tests if passing in incorrect param throws an exception.
      */
     public function testIncorrectFieldThrowsException()
     {

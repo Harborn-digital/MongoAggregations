@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation\Test;
 
 use ConnectHolland\MongoAggregations\Operation\Condition;
@@ -6,14 +7,14 @@ use ConnectHolland\MongoAggregations\Operation\InvalidAggregationOperationArgume
 use PHPUnit_Framework_TestCase;
 
 /**
- * Unit test for the operation $cond
+ * Unit test for the operation $cond.
  *
  * @author Ron Rademaker
  */
 class ConditionTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Tests if setting the if twice triggers an exception
+     * Tests if setting the if twice triggers an exception.
      */
     public function testIfTwiceThrowsException()
     {
@@ -24,7 +25,7 @@ class ConditionTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests if the resulting operation array is as expected
+     * Tests if the resulting operation array is as expected.
      *
      * @dataProvider provideConditionTestData
      */
@@ -37,7 +38,7 @@ class ConditionTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Gets test data
+     * Gets test data.
      */
     public function provideConditionTestData()
     {
@@ -46,42 +47,42 @@ class ConditionTest extends PHPUnit_Framework_TestCase
         return [
             [
                 [
-                    'if' => ['$eq' => ['$foo', 'foo']],
+                    'if'   => ['$eq' => ['$foo', 'foo']],
                     'then' => true,
-                    'else' => false
+                    'else' => false,
                 ],
                 [
-                    '$cond' => [['$eq' => ['$foo', 'foo']], true, false]
-                ]
+                    '$cond' => [['$eq' => ['$foo', 'foo']], true, false],
+                ],
             ],
             [
                 [
-                    'if' => ['$eq' => ['$foo', 'foo']],
+                    'if'   => ['$eq' => ['$foo', 'foo']],
                     'then' => $testCondition,
-                    'else' => false
+                    'else' => false,
                 ],
                 [
                     '$cond' => [
                         ['$eq' => ['$foo', 'foo']],
                         ['$cond' => [['$eq' => ['$foo', 'foo']], true, false]],
-                        false
-                    ]
-                ]
+                        false,
+                    ],
+                ],
             ],
             [
                 [
-                    'if' => ['$eq' => ['$foo', 'foo']],
+                    'if'   => ['$eq' => ['$foo', 'foo']],
                     'then' => true,
-                    'else' => $testCondition
+                    'else' => $testCondition,
                 ],
                 [
                     '$cond' => [
                         ['$eq' => ['$foo', 'foo']],
                         true,
-                        ['$cond' => [['$eq' => ['$foo', 'foo']], true, false]]
-                     ]
-                ]
-            ]
+                        ['$cond' => [['$eq' => ['$foo', 'foo']], true, false]],
+                     ],
+                ],
+            ],
         ];
     }
 }

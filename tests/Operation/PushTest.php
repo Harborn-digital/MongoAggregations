@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation\Test;
 
 use ConnectHolland\MongoAggregations\Operation\Condition;
@@ -6,14 +7,14 @@ use ConnectHolland\MongoAggregations\Operation\Push;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Unit test for the Push operation
+ * Unit test for the Push operation.
  *
  * @author Ron Rademaker
  */
 class PushTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Tests if the resulting operation array is as expected
+     * Tests if the resulting operation array is as expected.
      *
      * @dataProvider providePushTestData
      */
@@ -27,7 +28,7 @@ class PushTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Gets test data
+     * Gets test data.
      */
     public function providePushTestData()
     {
@@ -35,15 +36,15 @@ class PushTest extends PHPUnit_Framework_TestCase
             [
                 '$foo',
                 [
-                    '$push' => '$foo'
-                ]
+                    '$push' => '$foo',
+                ],
             ],
             [
                 Condition::getConditionByIfArray(['$eq' => ['$foo', 'foo']], true, false),
                 [
-                    '$push' => ['$cond' => [['$eq' => ['$foo', 'foo']], true, false]]
-                ]
-            ]
+                    '$push' => ['$cond' => [['$eq' => ['$foo', 'foo']], true, false]],
+                ],
+            ],
         ];
     }
 }
