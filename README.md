@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ConnectHolland/MongoAggregations.svg?branch=master)](https://travis-ci.org/ConnectHolland/MongoAggregations)
+[![StyleCI](https://styleci.io/repos/45597310/shield)](https://styleci.io/repos/45597310)
 
 # MongoAggregations
 Library allowing easy access to the mongo aggregate framework
