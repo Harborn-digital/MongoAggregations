@@ -1,15 +1,16 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation;
 
 /**
- * Operation to add a field under another name
+ * Operation to add a field under another name.
  *
  * @author Ron Rademaker
  */
 class FieldOperation extends AbstractOperation implements ProjectOperationInterface
 {
     /**
-     * Gets the operation
+     * Gets the operation.
      *
      * @return string
      */
@@ -19,7 +20,7 @@ class FieldOperation extends AbstractOperation implements ProjectOperationInterf
     }
 
     /**
-     * Sets the field to include
+     * Sets the field to include.
      *
      * @param mixed arguments
      */
@@ -27,7 +28,7 @@ class FieldOperation extends AbstractOperation implements ProjectOperationInterf
     {
         if (is_scalar($field)) {
             if (strpos($field, '$') !== 0) {
-                $field = '$' . $field;
+                $field = '$'.$field;
             }
             $this->setArguments($field);
         } else {

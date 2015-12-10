@@ -1,15 +1,16 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation;
 
 /**
- * $sort stage
+ * $sort stage.
  *
  * @author Ron Rademaker
  */
 class Sort extends AbstractArrayDefinitionAggregation
 {
     /**
-     * Creates a new sort
+     * Creates a new sort.
      */
     public function __construct()
     {
@@ -17,10 +18,10 @@ class Sort extends AbstractArrayDefinitionAggregation
     }
 
     /**
-     * Adds a sort field
+     * Adds a sort field.
      *
      * @param string $field
-     * @param integer $order
+     * @param int    $order
      */
     public function addSort($field, $order)
     {

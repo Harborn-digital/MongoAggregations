@@ -1,8 +1,9 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation;
 
 /**
- * Interface marking operations allowed in the $group stage
+ * Interface marking operations allowed in the $group stage.
  *
  * @author Ron Rademaker
  */

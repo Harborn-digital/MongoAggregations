@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation\Test;
 
 use ConnectHolland\MongoAggregations\Aggregation\Projection;
@@ -6,14 +7,14 @@ use ConnectHolland\MongoAggregations\Operation\Condition;
 use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
- * Unit test to test the $project stage
+ * Unit test to test the $project stage.
  *
  * @author Ron Rademaker
  */
 class ProjectionTest extends AbstractTestCase
 {
     /**
-     * Test if fields are included
+     * Test if fields are included.
      */
     public function testFieldsAreIncluded()
     {
@@ -22,7 +23,7 @@ class ProjectionTest extends AbstractTestCase
             ['foo' => 'foo'],
             ['foo' => 'bar'],
             ['foo' => 'bar'],
-            ['foo' => 'bar']
+            ['foo' => 'bar'],
         ];
 
         foreach ($testData as $test) {
@@ -38,7 +39,7 @@ class ProjectionTest extends AbstractTestCase
     }
 
     /**
-     * Test if fields are added
+     * Test if fields are added.
      */
     public function testFieldsAreAdded()
     {
@@ -47,7 +48,7 @@ class ProjectionTest extends AbstractTestCase
             ['foo' => 'foo'],
             ['foo' => 'bar'],
             ['foo' => 'bar'],
-            ['foo' => 'bar']
+            ['foo' => 'bar'],
         ];
 
         foreach ($testData as $test) {

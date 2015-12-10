@@ -1,4 +1,5 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Collection;
 
 use MongoCollection;
@@ -6,39 +7,39 @@ use MongoDB;
 use MongoDBRef;
 
 /**
- * Collection that allows to derefence references into an embedded collection
+ * Collection that allows to derefence references into an embedded collection.
  *
  * @author Ron Rademaker
  */
 class EmbeddedCollection extends MongoCollection
 {
     /**
-     * DB to lookup references
+     * DB to lookup references.
      *
      * @var MongoDB
      */
     private $db;
 
     /**
-     * Create a new embedded collection in $db from $collection containing all documents that match $query
+     * Create a new embedded collection in $db from $collection containing all documents that match $query.
      *
      * @param MongoDB $db
-     * @param string $name
-     * @param array $query
+     * @param string  $name
+     * @param array   $query
      */
     public function __construct(MongoDB $db, $name, array $query)
     {
-        parent::__construct($db, '__embedded_' . uniqid());
+        parent::__construct($db, '__embedded_'.uniqid());
 
         $this->db = $db;
         $this->dereferenceFromCollection(new MongoCollection($db, $name), $query);
     }
 
     /**
-     * Fills this collection with the dererefenced result of $query from $collection
+     * Fills this collection with the dererefenced result of $query from $collection.
      *
      * @param MongoCollection $collection
-     * @param array $query
+     * @param array           $query
      */
     private function dereferenceFromCollection(MongoCollection $collection, array $query)
     {
@@ -49,9 +50,10 @@ class EmbeddedCollection extends MongoCollection
     }
 
     /**
-     * Unreference all references in $document
+     * Unreference all references in $document.
      *
      * @param array $document
+     *
      * @return array
      */
     private function unreferenceDocument(array $document)

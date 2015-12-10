@@ -1,20 +1,21 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation;
 
 /**
- * A bag of related Aggregation stages that are useful together
+ * A bag of related Aggregation stages that are useful together.
  *
  * @author Ron Rademaker
  */
 class AggregationBag
 {
     /**
-     * Array holding the aggregations
+     * Array holding the aggregations.
      */
     private $bag = [];
 
     /**
-     * Adds an Aggregation stage to the bag
+     * Adds an Aggregation stage to the bag.
      */
     public function addAggregation(AggregationInterface $aggregation)
     {
@@ -22,7 +23,7 @@ class AggregationBag
     }
 
     /**
-     * Gets the aggregations in the bag
+     * Gets the aggregations in the bag.
      *
      * @return array
      */

@@ -1,15 +1,16 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Operation;
 
 /**
- * Operation to push results in the group stage
+ * Operation to push results in the group stage.
  *
  * @author Ron Rademaker
  */
 class Push extends AbstractOperation implements GroupOperationInterface
 {
     /**
-     * Creates a new condition
+     * Creates a new condition.
      */
     public function __construct()
     {
@@ -17,7 +18,7 @@ class Push extends AbstractOperation implements GroupOperationInterface
     }
 
     /**
-     * Sets the value to push
+     * Sets the value to push.
      *
      * @param mixed $push
      */

@@ -1,17 +1,18 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation;
 
 use ConnectHolland\MongoAggregations\Operation\ProjectOperationInterface;
 
 /**
- * Representation of a $project stage
+ * Representation of a $project stage.
  *
  * @author Ron Rademaker
  */
 class Projection extends AbstractArrayDefinitionAggregation
 {
     /**
-     * Creates a new projection
+     * Creates a new projection.
      */
     public function __construct()
     {
@@ -19,7 +20,7 @@ class Projection extends AbstractArrayDefinitionAggregation
     }
 
     /**
-     * Include $field
+     * Include $field.
      *
      * @param string $field
      */
@@ -29,9 +30,9 @@ class Projection extends AbstractArrayDefinitionAggregation
     }
 
     /**
-     * Includes a field with an expression / operation value
+     * Includes a field with an expression / operation value.
      *
-     * @param string $field
+     * @param string                    $field
      * @param ProjectOperationInterface $operation
      */
     public function includeOperationField($field, ProjectOperationInterface $operation)

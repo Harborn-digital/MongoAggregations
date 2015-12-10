@@ -1,18 +1,19 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation\Test;
 
 use ConnectHolland\MongoAggregations\Aggregation\RangeProjection;
 use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
- * Unit test for the range project stage
+ * Unit test for the range project stage.
  *
  * @author Ron Rademaker
  */
 class RangeProjectionTest extends AbstractTestCase
 {
     /**
-     * Basic range testing
+     * Basic range testing.
      */
     public function testRangeProjection()
     {
@@ -24,7 +25,7 @@ class RangeProjectionTest extends AbstractTestCase
             ['foo' => 11],
             ['foo' => 15],
             ['foo' => 22],
-            ['foo' => 29]
+            ['foo' => 29],
         ];
 
         foreach ($testData as $test) {

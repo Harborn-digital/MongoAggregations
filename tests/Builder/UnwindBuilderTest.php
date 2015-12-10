@@ -1,25 +1,26 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Builder\Test;
 
 use ConnectHolland\MongoAggregations\Builder\UnwindBuilder;
 use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
- * Unit test for the unwind builder
+ * Unit test for the unwind builder.
  *
  * @author Ron Rademaker
  */
 class UnwindBuilderTest extends AbstractTestCase
 {
     /**
-     * Tests if a regular unwind works
+     * Tests if a regular unwind works.
      */
     public function testRegularUnwind()
     {
         $testData = [
             ['foo' => ['foo']],
             ['foo' => ['foo', 'bar']],
-            ['foo' => ['foobar']]
+            ['foo' => ['foobar']],
         ];
         $builder = new UnwindBuilder('foo');
 
@@ -27,7 +28,7 @@ class UnwindBuilderTest extends AbstractTestCase
     }
 
     /**
-     * Tests unwinding strings
+     * Tests unwinding strings.
      */
     public function testStringUnwind()
     {
@@ -35,23 +36,22 @@ class UnwindBuilderTest extends AbstractTestCase
             ['foo' => 'foo'],
             ['foo' => 'foo'],
             ['foo' => 'bar'],
-            ['foo' => 'foobar']
+            ['foo' => 'foobar'],
         ];
         $builder = new UnwindBuilder('foo');
 
         $this->performTest($testData, $builder);
     }
 
-
     /**
-     * Tests if an unwind on a mixed database works
+     * Tests if an unwind on a mixed database works.
      */
     public function testUnwindMixedDatabase()
     {
         $testData = [
             ['foo' => 'foo'],
             ['foo' => ['foo', 'bar']],
-            ['foo' => ['foobar']]
+            ['foo' => ['foobar']],
         ];
 
         $builder = new UnwindBuilder('foo');
@@ -60,7 +60,7 @@ class UnwindBuilderTest extends AbstractTestCase
     }
 
     /**
-     * Tests $testdata on $builder
+     * Tests $testdata on $builder.
      *
      * Always expect 4 results, 2 foo, 1 bar and 1 foobar
      */

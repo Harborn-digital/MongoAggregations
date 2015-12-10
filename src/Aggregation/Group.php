@@ -1,22 +1,23 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Aggregation;
 
 use ConnectHolland\MongoAggregations\Operation\GroupOperationInterface;
 
 /**
- * $group stage in the aggregation framework
+ * $group stage in the aggregation framework.
  *
  * @author Ron Rademaker
  */
 class Group extends AbstractArrayDefinitionAggregation
 {
     /**
-     * Boolean indicating if the result field is set
+     * Boolean indicating if the result field is set.
      */
     private $resultFieldSet = false;
 
     /**
-     * Creates a new group
+     * Creates a new group.
      */
     public function __construct()
     {
@@ -24,7 +25,7 @@ class Group extends AbstractArrayDefinitionAggregation
     }
 
     /**
-     * Sets the field to group by
+     * Sets the field to group by.
      *
      * @param string|array $field
      */
@@ -38,7 +39,7 @@ class Group extends AbstractArrayDefinitionAggregation
 
         foreach ($field as $groupField) {
             if (strpos($groupField, '$') !== 0) {
-                $groupField = '$' . $groupField;
+                $groupField = '$'.$groupField;
             }
 
             $fields[ltrim($groupField, '$')] = $groupField;
@@ -52,9 +53,9 @@ class Group extends AbstractArrayDefinitionAggregation
     }
 
     /**
-     * Sets the result field
+     * Sets the result field.
      *
-     * @param string $resultField
+     * @param string                  $resultField
      * @param GroupOperationInterface $operation
      */
     public function setResultField($resultField, GroupOperationInterface $operation)

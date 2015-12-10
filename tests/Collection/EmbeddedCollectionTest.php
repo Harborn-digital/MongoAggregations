@@ -1,29 +1,29 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Collection\Test;
 
 use ConnectHolland\MongoAggregations\Collection\EmbeddedCollection;
 use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
-
 /**
- * Unit test for the embedded collection class
+ * Unit test for the embedded collection class.
  *
  * @author Ron Rademaker
  */
 class EmbeddedCollectionTest extends AbstractTestCase
 {
     /**
-     * Reference collection
+     * Reference collection.
      */
     protected $referencesCollection;
 
     /**
-     * Create testdata with references
+     * Create testdata with references.
      */
     public function setUp()
     {
         parent::setUp();
-        $this->referencesCollection = $this->db->selectCollection(static::class . 'References');
+        $this->referencesCollection = $this->db->selectCollection(static::class.'References');
 
         $ref1Data = ['foo' => 'bar'];
         $ref2Data = ['foo' => 'foo'];
@@ -36,35 +36,35 @@ class EmbeddedCollectionTest extends AbstractTestCase
 
         $this->collection->save(
             [
-                'bar' => 'baz',
-                'foo' => $ref1,
+                'bar'    => 'baz',
+                'foo'    => $ref1,
                 'foobar' => [
                     'baz' => 'foobar',
-                    'foo' => $ref2
-                ]
+                    'foo' => $ref2,
+                ],
             ]
         );
 
         $this->collection->save(
             [
-                'foo' => $ref1,
+                'foo'    => $ref1,
                 'foobar' => [
                     'baz' => 'foobar',
-                    'foo' => $ref1
-                ]
+                    'foo' => $ref1,
+                ],
             ]
         );
 
         $this->collection->save(
             [
                 'bar' => 'foobar',
-                'foo' => $ref2
+                'foo' => $ref2,
             ]
         );
     }
 
     /**
-     * Remove test collections
+     * Remove test collections.
      */
     public function tearDown()
     {
@@ -74,7 +74,7 @@ class EmbeddedCollectionTest extends AbstractTestCase
     }
 
     /**
-     * Tests unreferencing an entire collection
+     * Tests unreferencing an entire collection.
      */
     public function testUnreferenceCollection()
     {
@@ -98,16 +98,16 @@ class EmbeddedCollectionTest extends AbstractTestCase
             if (array_key_exists('bar', $originalDocument) && $originalDocument['bar'] === 'baz') {
                 $this->assertEquals(
                     [
-                        '_id' => $originalDocument['_id'],
-                        'bar' => 'baz',
-                        'foo' => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'bar'],
+                        '_id'    => $originalDocument['_id'],
+                        'bar'    => 'baz',
+                        'foo'    => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'bar'],
                         'foobar' => [
                             'baz' => 'foobar',
                             'foo' => [
                                 '_id' => $originalDocument['foobar']['foo']['$id'],
-                                'foo' => 'foo'
-                            ]
-                        ]
+                                'foo' => 'foo',
+                            ],
+                        ],
                     ],
                     $embedded
                 );
@@ -116,22 +116,22 @@ class EmbeddedCollectionTest extends AbstractTestCase
                     [
                         '_id' => $originalDocument['_id'],
                         'bar' => 'foobar',
-                        'foo' => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'foo']
+                        'foo' => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'foo'],
                     ],
                     $embedded
                 );
             } else {
                 $this->assertEquals(
                     [
-                        '_id' => $originalDocument['_id'],
-                        'foo' => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'bar'],
+                        '_id'    => $originalDocument['_id'],
+                        'foo'    => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'bar'],
                         'foobar' => [
                             'baz' => 'foobar',
                             'foo' => [
                                 '_id' => $originalDocument['foobar']['foo']['$id'],
-                                'foo' => 'bar'
-                            ]
-                        ]
+                                'foo' => 'bar',
+                            ],
+                        ],
                     ],
                     $embedded
                 );
@@ -142,7 +142,7 @@ class EmbeddedCollectionTest extends AbstractTestCase
     }
 
     /**
-     * Test unreferencing a selection of a collection
+     * Test unreferencing a selection of a collection.
      */
     public function testUnrefenceSelection()
     {
@@ -167,16 +167,16 @@ class EmbeddedCollectionTest extends AbstractTestCase
             if ($originalDocument['bar'] === 'baz') {
                 $this->assertEquals(
                     [
-                        '_id' => $originalDocument['_id'],
-                        'bar' => 'baz',
-                        'foo' => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'bar'],
+                        '_id'    => $originalDocument['_id'],
+                        'bar'    => 'baz',
+                        'foo'    => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'bar'],
                         'foobar' => [
                             'baz' => 'foobar',
                             'foo' => [
                                 '_id' => $originalDocument['foobar']['foo']['$id'],
-                                'foo' => 'foo'
-                            ]
-                        ]
+                                'foo' => 'foo',
+                            ],
+                        ],
                     ],
                     $embedded
                 );
@@ -185,7 +185,7 @@ class EmbeddedCollectionTest extends AbstractTestCase
                     [
                         '_id' => $originalDocument['_id'],
                         'bar' => 'foobar',
-                        'foo' => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'foo']
+                        'foo' => ['_id' => $originalDocument['foo']['$id'], 'foo' => 'foo'],
                     ],
                     $embedded
                 );

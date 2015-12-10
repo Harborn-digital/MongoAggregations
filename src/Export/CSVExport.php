@@ -1,18 +1,19 @@
 <?php
+
 namespace ConnectHolland\MongoAggregations\Export;
 
 use League\Csv\Writer;
 use SplTempFileObject;
 
 /**
- * Exporter to CSV
+ * Exporter to CSV.
  *
  * @author Ron Rademaker
  */
 class CSVExport implements ExportInterface
 {
     /**
-     * Exports $result to $file
+     * Exports $result to $file.
      */
     public function exportToFile(array $result, $file)
     {
