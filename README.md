@@ -32,6 +32,7 @@ Within the stages operations can be used, these are currently supported:
 |Push|$push| https://docs.mongodb.org/manual/reference/operator/aggregation/push/#grp._S_push|
 |WeekOperation|$week| https://docs.mongodb.org/manual/reference/operator/aggregation/week/|
 |FieldOperation||Rename a field in a projection (example: ```{$project: {my_field: {'$some.field.hidden.in.complex.nesting'}}}```)|
+|ArrayOperation||Add an expression in a projection using a mongo array (example: ```$operation = new ArrayOperation(['$year' => '$somedate'])```)|
 
 ## EmbeddedCollections
 The library adds a class EmbeddedCollection which can be used to create a (temporary) collection that embeds documents that another collection has referenced. 
