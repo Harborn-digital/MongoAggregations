@@ -6,7 +6,7 @@ use ConnectHolland\MongoAggregations\Operation\ArrayOperation;
 use ConnectHolland\MongoAggregations\Test\AbstractTestCase;
 
 /**
- * Unit test for the ArrayOperation
+ * Unit test for the ArrayOperation.
  *
  * @author Ron Rademaker
  */
