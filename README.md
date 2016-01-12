@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/ConnectHolland/MongoAggregations.svg?branch=master)](https://travis-ci.org/ConnectHolland/MongoAggregations)
 [![StyleCI](https://styleci.io/repos/45597310/shield)](https://styleci.io/repos/45597310)
 [![Latest Stable Version](https://poser.pugx.org/connectholland/mongo-aggregations/v/stable)](https://packagist.org/packages/connectholland/mongo-aggregations) [![Total Downloads](https://poser.pugx.org/connectholland/mongo-aggregations/downloads)](https://packagist.org/packages/connectholland/mongo-aggregations) [![Latest Unstable Version](https://poser.pugx.org/connectholland/mongo-aggregations/v/unstable)](https://packagist.org/packages/connectholland/mongo-aggregations) [![License](https://poser.pugx.org/connectholland/mongo-aggregations/license)](https://packagist.org/packages/connectholland/mongo-aggregations)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/01653901-f678-4b12-9dc8-3c9eb76d9af4/mini.png)](https://insight.sensiolabs.com/projects/01653901-f678-4b12-9dc8-3c9eb76d9af4)
 
 # MongoAggregations
 Library allowing easy access to the mongo aggregate framework
