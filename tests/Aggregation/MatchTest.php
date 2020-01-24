@@ -32,7 +32,7 @@ class MatchTest extends AbstractTestCase
         $match = new Match();
         $match->setQuery(['foo' => 'foo']);
 
-        $result = $this->collection->aggregate([$match->getStage()]);
+        $result = $this->collection->aggregate([$match->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(2, count($result['result']));
     }

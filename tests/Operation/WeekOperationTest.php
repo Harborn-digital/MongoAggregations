@@ -58,7 +58,7 @@ class WeekOperationTest extends AbstractTestCase
         $projection->includeField('expected');
         $projection->includeOperationField('weeknumber', $week);
 
-        $result = $this->collection->aggregate([$projection->getStage()]);
+        $result = $this->collection->aggregate([$projection->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(3, count($result['result']));
 

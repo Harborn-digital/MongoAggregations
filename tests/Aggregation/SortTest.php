@@ -33,7 +33,7 @@ class SortTest extends AbstractTestCase
         $sort = new Sort();
         $sort->addSort('foo', -1);
 
-        $result = $this->collection->aggregate([$sort->getStage()]);
+        $result = $this->collection->aggregate([$sort->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $max = 500;
         foreach ($result['result'] as $record) {

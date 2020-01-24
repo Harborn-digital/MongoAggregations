@@ -41,7 +41,7 @@ class RangeProjectionTest extends AbstractTestCase
         $rangedProjection = new RangeProjection();
         $rangedProjection->addRange('foo', $ranges);
 
-        $result = $this->collection->aggregate([$rangedProjection->getStage()]);
+        $result = $this->collection->aggregate([$rangedProjection->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(count($testData), count($result['result']));
         $lows = 0;

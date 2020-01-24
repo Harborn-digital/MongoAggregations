@@ -31,7 +31,7 @@ class LimitTest extends AbstractTestCase
         $limit = new Limit();
         $limit->setLimit(2);
 
-        $result = $this->collection->aggregate([$limit->getStage()]);
+        $result = $this->collection->aggregate([$limit->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(2, count($result['result']), 'Asserting the amount of returned results is limited to the amount of the added Limit stage.');
     }
@@ -54,7 +54,7 @@ class LimitTest extends AbstractTestCase
 
         $limit = new Limit(2);
 
-        $result = $this->collection->aggregate([$limit->getStage()]);
+        $result = $this->collection->aggregate([$limit->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(2, count($result['result']), 'Asserting the amount of returned results is limited to the amount of the added Limit stage.');
     }

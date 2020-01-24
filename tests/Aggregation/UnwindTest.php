@@ -29,7 +29,7 @@ class UnwindTest extends AbstractTestCase
         $unwind = new Unwind();
         $unwind->setField('foo');
 
-        $result = $this->collection->aggregate([$unwind->getStage()]);
+        $result = $this->collection->aggregate([$unwind->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(4, count($result['result']));
     }

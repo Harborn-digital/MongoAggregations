@@ -72,7 +72,7 @@ class UnwindBuilderTest extends AbstractTestCase
 
         $pipeline = $builder->build();
 
-        $result = $this->collection->aggregate($pipeline);
+        $result = $this->collection->aggregate($pipeline, ['cursor' => ['batchSize' => 101]]);
 
         $foos = 0;
         $bars = 0;

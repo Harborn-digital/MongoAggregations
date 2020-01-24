@@ -51,7 +51,7 @@ class PipelineBuilderTest extends PHPUnit_Framework_TestCase
         $unwind3->setField('baz');
 
         $bag = new AggregationBag();
-        $bag->addAggregation($unwind2);
+        $bag->addAggregation($unwind2, ['cursor' => ['batchSize' => 101]]);
 
         $builder = new PipelineBuilder();
         $builder->add($unwind3);

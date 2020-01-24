@@ -30,7 +30,7 @@ class SkipTest extends AbstractTestCase
         $skip = new Skip();
         $skip->setAmount(1);
 
-        $result = $this->collection->aggregate([$skip->getStage()]);
+        $result = $this->collection->aggregate([$skip->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals('2', $result['result'][0]['foo'], 'Asserting results are skipped equal to the amount added Skip stage.');
     }
@@ -52,7 +52,7 @@ class SkipTest extends AbstractTestCase
 
         $skip = new Skip(1);
 
-        $result = $this->collection->aggregate([$skip->getStage()]);
+        $result = $this->collection->aggregate([$skip->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals('2', $result['result'][0]['foo'], 'Asserting results are skipped equal to the amount added Skip stage.');
     }

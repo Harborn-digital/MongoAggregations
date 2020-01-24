@@ -61,7 +61,7 @@ class GroupTest extends AbstractTestCase
         $sum->setSum(1);
         $group->setResultField('count', $sum);
 
-        $result = $this->collection->aggregate([$group->getStage()]);
+        $result = $this->collection->aggregate([$group->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $foos = 0;
         $bars = 0;
@@ -106,7 +106,7 @@ class GroupTest extends AbstractTestCase
         $sum->setSum(1);
         $group->setResultField('count', $sum);
 
-        $result = $this->collection->aggregate([$group->getStage()]);
+        $result = $this->collection->aggregate([$group->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(3, count($result['result']));
 

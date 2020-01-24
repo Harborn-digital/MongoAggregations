@@ -33,7 +33,7 @@ class ProjectionTest extends AbstractTestCase
         $projection = new Projection();
         $projection->includeField('foo');
 
-        $result = $this->collection->aggregate([$projection->getStage()]);
+        $result = $this->collection->aggregate([$projection->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(5, count($result['result']));
     }
@@ -64,7 +64,7 @@ class ProjectionTest extends AbstractTestCase
         );
         $projection->includeOperationField('isFoo', $condition);
 
-        $result = $this->collection->aggregate([$projection->getStage()]);
+        $result = $this->collection->aggregate([$projection->getStage()], ['cursor' => ['batchSize' => 101]]);
 
         $this->assertEquals(5, count($result['result']));
 
